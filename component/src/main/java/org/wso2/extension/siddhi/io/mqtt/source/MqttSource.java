@@ -217,15 +217,19 @@ public class MqttSource extends Source {
 
     public void disconnect() {
         try {
-            client.disconnect();
-            log.debug("Disconnected from MQTT broker: " + brokerURL + " defined in Siddhi App: " +
-                    siddhiAppName);
+            if (client != null) {
+                client.disconnect();
+                log.debug("Disconnected from MQTT broker: " + brokerURL + " defined in Siddhi App: " +
+                      siddhiAppName);
+            }
         } catch (MqttException e) {
             log.error("Could not disconnect from MQTT broker: " + brokerURL + " defined in Siddhi App: " +
                     siddhiAppName, e);
         } finally {
             try {
-                client.close();
+                if (client != null) {
+                    client.close();
+                }
             } catch (MqttException e) {
                 log.error("Could not close connection with MQTT broker: " + brokerURL +
                         " defined in Siddhi App: " +

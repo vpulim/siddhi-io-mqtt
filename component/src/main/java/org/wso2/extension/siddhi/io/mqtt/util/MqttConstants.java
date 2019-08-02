@@ -27,6 +27,9 @@ public class MqttConstants {
 
     public static final String MQTT_BROKER_URL = "url";
     public static final String MESSAGE_TOPIC = "topic";
+    public static final String DEFAULT_TOPIC = null;
+    public static final String TOPIC_ATTRIBUTE = "topic.attribute";
+    public static final String DEFAULT_TOPIC_ATTRIBUTE = "topic";
     public static final String MQTT_BROKER_USERNAME = "username";
     public static final String MQTT_BROKER_PASSWORD = "password";
     public static final String MESSAGE_QOS = "quality.of.service";

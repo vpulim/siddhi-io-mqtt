@@ -77,7 +77,8 @@ public class MqttConsumer {
                 }
             }
             String message = new String(mqttMessage.getPayload(), "UTF-8");
-            sourceEventListener.onEvent(message, null);
+            String messageWithTopic = "{\"topic\":\"" + topic + "\"," + message.substring(1);
+            sourceEventListener.onEvent(messageWithTopic, null);
         }
 
         @Override
